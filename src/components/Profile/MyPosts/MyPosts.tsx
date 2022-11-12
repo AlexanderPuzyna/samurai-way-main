@@ -12,7 +12,7 @@ const MyPosts = () => {
             </div>
             <div className={s.posts}>
                <Post message='Hi, how are you?' likes={15}/>
-               <Post message='This my first post' likes={20}/>
+               <Post message='This my first post' likes={22}/>
             </div>
         </div>
     )
