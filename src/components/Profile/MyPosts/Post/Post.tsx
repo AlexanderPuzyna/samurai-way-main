@@ -6,7 +6,7 @@ type PropsType = {
     likes: number
 }
 
-const Post = (props: PropsType) => {
+const Post: React.FC<PropsType> = (props) => {
     return (
                 <div className={s.item}>
                     <img src="https://www.pngitem.com/pimgs/m/537-5372558_flat-man-icon-png-transparent-png.png"/>
@@ -14,7 +14,6 @@ const Post = (props: PropsType) => {
                     <div>
                         <span>{props.likes}</span>
                     </div>
-
                 </div>
     )
 }
