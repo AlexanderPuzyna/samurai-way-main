@@ -11,7 +11,7 @@ export type MessagePropsType = {
     message: string
 }
 
-const DialogItem = (props: DialogItemPropsType) => {
+const DialogItem: React.FC<DialogItemPropsType> = (props) => {
     let path = '/dialogs/' + props.id;
 
     return <div className={s.dialog + ' ' + s.active}>
@@ -19,7 +19,7 @@ const DialogItem = (props: DialogItemPropsType) => {
     </div>
 }
 
-const Message = (props: MessagePropsType) => {
+const Message: React.FC<MessagePropsType> = (props) => {
 
     return <div className={s.dialog}>{props.message}</div>
 }
