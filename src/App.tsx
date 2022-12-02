@@ -5,13 +5,36 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile, {MyPostsPropsType} from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
-import {DialogsType, MessagesType, PostType} from "./index";
+
+
+export type PostType = {
+    id: number
+    message: string
+    likesCount: number
+}
+export type PostsType = {
+    posts: Array<PostType>
+}
+export type ProfilePageType = {
+    profilePage: any
+}
+
+export type DialogsType = {
+    id: number
+    name: string
+}
+
+export type MessagesType = {
+    id: number
+    message: string
+}
 
 
 type AppPropsType = {
-    dialogs: Array<DialogsType>
-    posts: Array<PostType>
-    messages: Array<MessagesType>
+    // dialogs: Array<Dialogs>
+    // posts: Array<PostType>
+    // messages: Array<MessagesType>
+    state:any
 }
 
 const App = (props:AppPropsType) => {
@@ -22,8 +45,10 @@ const App = (props:AppPropsType) => {
             <Header/>
             <Navbar/>
             <div className="app-wrapper-content">
-                <Route  path='/dialogs' render={() => <Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
-                <Route  path='/profile' render={() => <Profile posts={props.posts}/>}/>
+                <Route  path='/dialogs'
+                        render={() => <Dialogs state={props.state.dialogsPage}/>}/>
+                <Route  path='/profile'
+                        render={() => <Profile state={props.state.profilePage}/>}/>
             </div>
         </div>
         </BrowserRouter>
