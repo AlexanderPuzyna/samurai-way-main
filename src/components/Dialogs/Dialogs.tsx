@@ -4,14 +4,12 @@ import {NavLink} from "react-router-dom";
 import {message} from "antd";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {DialogsType, MessagesType} from "../../App";
-
+import {DialogsPageType, RootStateType} from "../../redux/state";
 
 type DialogsPropsType = {
-    dialogs: Array<DialogsType>
-    messages: Array<MessagesType>
-    state: any
+    state: DialogsPageType
 }
+
 
 const Dialogs = (props:DialogsPropsType) => {
 

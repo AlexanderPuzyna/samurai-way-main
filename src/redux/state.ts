@@ -1,6 +1,37 @@
+export type MessageType = {
+    id: number
+    message: string
+}
 
+export type DialogType = {
+    id: number
+    name: string
+}
 
-const state = {
+export type PostType = {
+    id: number
+    message: string
+    likesCount: number
+}
+
+export type ProfilePageType = {
+    posts: Array<PostType>
+}
+
+export type DialogsPageType = {
+    messages: Array<MessageType>
+    dialogs: Array<DialogType>
+}
+
+export type SidebarType = {}
+
+export type RootStateType = {
+    profilePage: ProfilePageType
+    dialogsPage: DialogsPageType
+    sidebar: SidebarType
+}
+
+const state: RootStateType = {
     profilePage: {
         posts: [
             {id: 1, message: 'Hi, how are you?', likesCount: 12},
