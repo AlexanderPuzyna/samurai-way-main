@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
 export type StoreType = {
     _state: RootStateType
     _callSubscriber: () => void
@@ -90,7 +93,7 @@ let store: StoreType = {
     },
 
     dispatch(action: any) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost: PostType = {
                 id: 5,
                 message: this._state.profilePage.newPostText,
@@ -99,7 +102,7 @@ let store: StoreType = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = ''; //Для того чтобы при клике на кнопку Add Post из textarea пропал текст
             this._callSubscriber()
-        } else if (action.type === 'UPDATE-NEW_POST-TEXT') {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber()
         }
@@ -107,6 +110,11 @@ let store: StoreType = {
 
 
 }
+
+export const addPostActionCreator = () => ({type: ADD_POST})
+
+export const updateNewPostTextActionCreator = (text: string) =>
+    ({type: UPDATE_NEW_POST_TEXT, newText:text})
 
 
 export default store;
