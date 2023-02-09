@@ -1,20 +1,37 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import s from "./Dialogs.module.css";
 import {NavLink} from "react-router-dom";
 import {message} from "antd";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {DialogsPageType, RootStateType} from "../../redux/state";
+import {
+    DialogsPageType,
+    RootStateType,
+    sendMessageCreator,
+    StoreType,
+    updateNewMessageBodyCreator
+} from "../../redux/state";
 
 type DialogsPropsType = {
-    state: DialogsPageType
+    store: StoreType
+
 }
 
 
 const Dialogs = (props:DialogsPropsType) => {
 
-    let dialogElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
-    let messagesElemetns = props.state.messages.map(m => <Message message={m.message}/>)
+    let state = props.store.getState().dialogsPage;
+
+    let dialogElements = state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+    let messagesElemetns = state.messages.map(m => <Message message={m.message}/>)
+    let newMessageBody = state.newMessageBody;
+    let onSendMessageClick = () => {
+        props.store.dispatch(sendMessageCreator())
+    }
+    let onNewMessageChange = (e:ChangeEvent<HTMLTextAreaElement>) => {
+        let body = e.target.value;
+        props.store.dispatch(updateNewMessageBodyCreator(body));
+    }
 
     return (
         <div className={s.dialogs}>
@@ -22,7 +39,13 @@ const Dialogs = (props:DialogsPropsType) => {
                 {dialogElements}
             </div>
             <div className={s.messages}>
-                {messagesElemetns}
+                <div>{messagesElemetns}</div>
+                <div>
+                    <div><textarea value={newMessageBody}
+                                   onChange={onNewMessageChange}
+                                   placeholder='Enter your message'></textarea></div>
+                    <div><button onClick={onSendMessageClick}>Send</button></div>
+                </div>
             </div>
         </div>
     )
