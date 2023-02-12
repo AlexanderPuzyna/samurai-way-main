@@ -4,13 +4,9 @@ import {NavLink} from "react-router-dom";
 import {message} from "antd";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {
-    DialogsPageType,
-    RootStateType,
-    sendMessageCreator,
-    StoreType,
-    updateNewMessageBodyCreator
-} from "../../redux/state";
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
+import {StoreType} from "../../redux/state";
+
 
 type DialogsPropsType = {
     store: StoreType
