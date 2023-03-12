@@ -1,10 +1,26 @@
-import {PostType} from "./state";
+import {PostType} from "./store";
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
 export type ActionsTypes = ReturnType<typeof sendMessageCreator> | ReturnType<typeof updateNewMessageBodyCreator>
 
- const dialogsReducer = (state: any, action: any) => {
+let initialState = {
+    messages: [
+        {id: 1, message: 'Hi'},
+        {id: 2, message: 'What are you doing?'},
+        {id: 3, message: 'Nice!'},
+        {id: 4, message: 'Ok'}
+    ],
+    dialogs: [
+        {id: 1, name: 'Alexander'},
+        {id: 2, name: 'Maxim'},
+        {id: 3, name: 'Alexandra'},
+        {id: 4, name: 'Yana'},
+    ],
+    newMessageBody: ''
+}
+
+ const dialogsReducer = (state: any = initialState, action: any) => {
 
      switch (action.type) {
          case UPDATE_NEW_MESSAGE_BODY:
