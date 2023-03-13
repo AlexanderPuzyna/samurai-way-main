@@ -48,55 +48,54 @@ export type RootStateType = {
 }
 
 
-let store: StoreType = {
-    _state: {
-        profilePage: {
-            posts: [
-                {id: 1, message: 'Hi, how are you?', likesCount: 12},
-                {id: 2, message: 'This my first post', likesCount: 22}
-            ],
-            newPostText: 'Music'
+// let store: StoreType = {
+//     _state: {
+//         profilePage: {
+//             posts: [
+//                 {id: 1, message: 'Hi, how are you?', likesCount: 12},
+//                 {id: 2, message: 'This my first post', likesCount: 22}
+//             ],
+//             newPostText: 'Music'
+//
+//         },
+//         dialogsPage: {
+//             messages: [
+//                 {id: 1, message: 'Hi'},
+//                 {id: 2, message: 'What are you doing?'},
+//                 {id: 3, message: 'Nice!'},
+//                 {id: 4, message: 'Ok'}
+//             ],
+//             dialogs: [
+//                 {id: 1, name: 'Alexander'},
+//                 {id: 2, name: 'Maxim'},
+//                 {id: 3, name: 'Alexandra'},
+//                 {id: 4, name: 'Yana'},
+//             ],
+//             newMessageBody: ''
+//         },
+//         sidebar: {}
+//     },
+//     _callSubscriber() {
+//         console.log('state changed')
+//     },
+//
+//     getState() {
+//         return this._state;
+//     },
+//     subscribe(observer) {
+//         this._callSubscriber = observer;
+//     },
+//
+//     dispatch(action: any) {
+//
+//         this._state.profilePage = profileReducer(this._state.profilePage, action)
+//         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+//         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
+//
+//         this._callSubscriber()
+//     }
+//
+//
+// }
 
-        },
-        dialogsPage: {
-            messages: [
-                {id: 1, message: 'Hi'},
-                {id: 2, message: 'What are you doing?'},
-                {id: 3, message: 'Nice!'},
-                {id: 4, message: 'Ok'}
-            ],
-            dialogs: [
-                {id: 1, name: 'Alexander'},
-                {id: 2, name: 'Maxim'},
-                {id: 3, name: 'Alexandra'},
-                {id: 4, name: 'Yana'},
-            ],
-            newMessageBody: ''
-        },
-        sidebar: {}
-    },
-    _callSubscriber() {
-        console.log('state changed')
-    },
 
-    getState() {
-        return this._state;
-    },
-    subscribe(observer) {
-        this._callSubscriber = observer;
-    },
-
-    dispatch(action: any) {
-
-        this._state.profilePage = profileReducer(this._state.profilePage, action)
-        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
-        this._state.sidebar = sidebarReducer(this._state.sidebar, action)
-
-        this._callSubscriber()
-    }
-
-
-}
-
-
-export default store;

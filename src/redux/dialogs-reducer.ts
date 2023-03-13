@@ -1,10 +1,11 @@
 import {PostType} from "./store";
+import {DialogsPageType} from "./redux-store";
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
 export type ActionsTypes = ReturnType<typeof sendMessageCreator> | ReturnType<typeof updateNewMessageBodyCreator>
 
-let initialState = {
+let initialState:DialogsPageType = {
     messages: [
         {id: 1, message: 'Hi'},
         {id: 2, message: 'What are you doing?'},
@@ -20,7 +21,7 @@ let initialState = {
     newMessageBody: ''
 }
 
- const dialogsReducer = (state: any = initialState, action: any) => {
+ const dialogsReducer = (state: DialogsPageType = initialState, action: any): DialogsPageType => {
 
      switch (action.type) {
          case UPDATE_NEW_MESSAGE_BODY:
