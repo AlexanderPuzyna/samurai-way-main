@@ -1,11 +1,7 @@
 import React, {ChangeEvent} from "react";
 import s from "./Dialogs.module.css";
-import {NavLink} from "react-router-dom";
-import {message} from "antd";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
-import {StoreType} from "../../redux/store";
 import {DialogsPageType, MessageType} from "../../redux/redux-store";
 
 
