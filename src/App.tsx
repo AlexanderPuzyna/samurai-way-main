@@ -8,14 +8,10 @@ import {RootStateType, StoreType} from "./redux/store";
 import {ActionsTypes} from "./redux/dialogs-reducer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
-type AppPropsType = {
-    state: RootStateType
-    dispatch: (action: ActionsTypes ) => void
-    store: StoreType
-}
 
 
-const App = (props: AppPropsType) => {
+
+const App = () => {
 
     return (
         <div className='app-wrapper'>
@@ -23,9 +19,9 @@ const App = (props: AppPropsType) => {
             <Navbar/>
             <div className="app-wrapper-content">
                 <Route path='/dialogs'
-                       render={() => <DialogsContainer store={props.store} />}/>
+                       render={() => <DialogsContainer />}/>
                 <Route path='/profile'
-                       render={() => <Profile store={props.store}/>}
+                       render={() => <Profile />}
                 />
             </div>
         </div>
