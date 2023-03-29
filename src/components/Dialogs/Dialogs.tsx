@@ -12,7 +12,6 @@ type DialogsPropsType = {
 
 }
 
-
 const Dialogs = (props:DialogsPropsType) => {
 
     let state = props.dialogsPage;
