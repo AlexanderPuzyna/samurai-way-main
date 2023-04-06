@@ -48,12 +48,14 @@ export type RootStateType = {
 }
 
 
-let reducers = combineReducers({
+let rootReducer = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     sidebar: sidebarReducer
 });
 
-let store: StoreType = createStore(reducers);
+export type AppStateType = ReturnType<typeof rootReducer>
+
+let store = createStore(rootReducer);
 
 export default store;
