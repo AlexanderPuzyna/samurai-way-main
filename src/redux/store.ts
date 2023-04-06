@@ -11,12 +11,12 @@ export type StoreType = {
     dispatch: (action: ActionsTypes) => void
 }
 
-export type MessageType = {
+type MessageType = {
     id: number
     message: string
 }
 
-export type DialogType = {
+ type DialogType = {
     id: number
     name: string
 }
@@ -33,8 +33,8 @@ export type ProfilePageType = {
 }
 
 export type DialogsPageType = {
-    messages: Array<MessageType>
-    dialogs: Array<DialogType>
+    messages: MessageType[]
+    dialogs: DialogType[]
     newMessageBody: string
 
 }
