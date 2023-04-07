@@ -1,4 +1,4 @@
-import {ProfilePageType} from "./store";
+
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
@@ -28,18 +28,23 @@ let initialState:InitialStateType = {
  const profileReducer = (state: InitialStateType = initialState, action: ActionsTypes):InitialStateType => {
 
      switch (action.type) {
-         case ADD_POST:
+         case ADD_POST: {
              let newPost: PostType = {
                  id: 5,
                  message: state.newPostText,
                  likesCount: 0
              }; //Создется новый пост
-             state.posts.push(newPost);
-             state.newPostText = ''; //Для того чтобы при клике на кнопку Add Post из textarea пропал текст
-             return state;
-         case UPDATE_NEW_POST_TEXT:
-             state.newPostText = action.newText;
-             return state;
+             let stateCopy = {...state};
+             stateCopy.posts = [...state.posts];
+             stateCopy.posts.push(newPost);
+             stateCopy.newPostText = ''; //Для того чтобы при клике на кнопку Add Post из textarea пропал текст
+             return stateCopy;
+         }
+         case UPDATE_NEW_POST_TEXT: {
+             let stateCopy = {...state};
+             stateCopy.newPostText = action.newText;
+             return stateCopy;
+         }
          default:
              return state;
      }
