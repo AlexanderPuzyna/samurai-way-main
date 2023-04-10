@@ -2,6 +2,7 @@ import {combineReducers, createStore} from "redux";
 import profileReducer from "./profile-reducer";
 import dialogsReducer, {ActionsTypes} from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
+import usersReducer from "./users-reducer";
 
 export type StoreType = {
     _state: RootStateType
@@ -51,7 +52,8 @@ export type RootStateType = {
 let rootReducer = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
-    sidebar: sidebarReducer
+    sidebar: sidebarReducer,
+    usersPage: usersReducer
 });
 
 export type AppStateType = ReturnType<typeof rootReducer>
