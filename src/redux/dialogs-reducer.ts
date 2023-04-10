@@ -1,5 +1,6 @@
 import {PostType} from "./store";
 import {DialogsPageType} from "./redux-store";
+
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
@@ -33,20 +34,23 @@ let initialState = {
     newMessageBody: ''
 }
 
- const dialogsReducer = (state: InitialStateType = initialState, action: any): InitialStateType => {
-
-     switch (action.type) {
-         case UPDATE_NEW_MESSAGE_BODY:
-             state.newMessageBody = action.body;
-             return state;
-         case  SEND_MESSAGE:
-             let body = state.newMessageBody;
-             state.newMessageBody = '';
-             state.messages.push({id: 5, message: body});
-             return state;
-         default:
-             return state;
-     }
+const dialogsReducer = (state: InitialStateType = initialState, action: any): InitialStateType => {
+    switch (action.type) {
+        case UPDATE_NEW_MESSAGE_BODY:
+            return {
+                ...state,
+                newMessageBody: action.body
+            };
+        case  SEND_MESSAGE:
+            let body = state.newMessageBody;
+            return {
+                ...state,
+                newMessageBody: '',
+                messages: [...state.messages, {id: 5, message: body}]
+            }
+        default:
+            return state;
+    }
 }
 
 export const sendMessageCreator = () => {
