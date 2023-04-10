@@ -39,6 +39,10 @@ export type DialogsPageType = {
 
 }
 
+export type UsersPageType = {
+
+}
+
 export type SidebarType = {}
 
 export type RootStateType = {
