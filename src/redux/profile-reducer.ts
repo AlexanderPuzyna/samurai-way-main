@@ -34,16 +34,19 @@ let initialState:InitialStateType = {
                  message: state.newPostText,
                  likesCount: 0
              }; //Создется новый пост
-             let stateCopy = {...state};
-             stateCopy.posts = [...state.posts];
-             stateCopy.posts.push(newPost);
-             stateCopy.newPostText = ''; //Для того чтобы при клике на кнопку Add Post из textarea пропал текст
+             let stateCopy = {
+                 ...state,
+                 posts: [...state.posts, newPost],
+                 newPostText: '' //Для того чтобы при клике на кнопку Add Post из textarea пропал текст
+             };
              return stateCopy;
          }
          case UPDATE_NEW_POST_TEXT: {
-             let stateCopy = {...state};
-             stateCopy.newPostText = action.newText;
-             return stateCopy;
+             return {
+                 ...state,
+                 newPostText: action.newText
+             };
+
          }
          default:
              return state;
