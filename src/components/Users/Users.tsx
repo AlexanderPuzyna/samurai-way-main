@@ -14,7 +14,6 @@ const Users = (props: UsersContainerType) => {
                 props.setUsers(response.data.items);
             });
 
-
         }
     }
 
