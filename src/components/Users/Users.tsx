@@ -6,7 +6,6 @@ import  axios from "axios";
 import userPhoto from '../../assets/images/user.png'
 
 const Users = (props: UsersContainerType) => {
-
     let getUsers = () => {
         if (props.users.length === 0) {
 
