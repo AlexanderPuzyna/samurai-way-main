@@ -7,15 +7,17 @@ import {ActionsTypes} from "../../redux/profile-reducer";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
+// type ProfilePropsType = {
+//
+// }
 
 
 
-
-const Profile = () => {
+const Profile = (props: any ) => {
 
     return (
         <div>
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <MyPostsContainer />
         </div>
     )

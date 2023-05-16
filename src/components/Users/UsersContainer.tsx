@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Dispatch} from 'redux';
 import {
     follow,
     setCurrentPage,
@@ -12,7 +11,6 @@ import {
 import {AppStateType} from "../../redux/redux-store";
 import axios from "axios";
 import Users from "./Users";
-import loader from '../../assets/images/preloader.gif';
 import Preloader from "../common/Preloader/Preloader";
 
 
